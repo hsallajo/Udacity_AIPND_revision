@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/print_results.py
 #                                                                             
-# PROGRAMMER: S. Huoponen, Mar-7, 2019
-# DATE CREATED:
+# PROGRAMMER: S. Huopone
+# DATE CREATED: Mar-7, 2019
 # REVISED DATE: 
 # PURPOSE: Create a function print_results that prints the results statistics
 #          from the results statistics dictionary (results_stats_dic). It 
@@ -26,11 +26,6 @@
 #         This function does not output anything other than printing a summary
 #         of the final results.
 ##
-# TODO 6: Define print_results function below, specifically replace the None
-#       below by the function definition of the print_results function. 
-#       Notice that this function doesn't to return anything because it  
-#       prints a summary of the results using results_dic and results_stats_dic
-# 
 def print_results(results_dict, results_stats_dict, model,
                   print_incorrect_dogs = False, print_incorrect_breed = False):
     """
@@ -64,7 +59,7 @@ def print_results(results_dict, results_stats_dict, model,
     """
     print("\n")
     print("# ************************************************")
-    print("# Results with model: {}".format(model))
+    print("# Model arch: {}".format(model))
     print("# Number of images: {}".format(results_stats_dict["n_count_num_images"]))
     print("# Number of Dog images: {}".format(results_stats_dict["n_count_num_dog_imgs"]))
     print("# Number of 'Not-a' Dog images: {}".format(results_stats_dict["n_count_num_not_dog_imgs"]))
@@ -82,11 +77,11 @@ def print_results(results_dict, results_stats_dict, model,
             results_stats_dict['n_count_num_images'] - \
             results_stats_dict['n_count_num_corr_dog_matches'] - \
             results_stats_dict['n_count_num_corr_non_dog_matches']))
-        print("#\n")
         for misc_key, misc_val in results_dict.items():
             if sum(misc_val[3:]) == 1:
-                print("{}: {}".format(misc_key, misc_val))
+                print("# Misclassified: {}: '{}' vs '{}'".format(misc_key, misc_val[0], misc_val[1]))
 
+    print("#\n")
     print("# Print misclassifications of breeds: {}".format(print_incorrect_breed))
     if print_incorrect_breed:
         count = 0

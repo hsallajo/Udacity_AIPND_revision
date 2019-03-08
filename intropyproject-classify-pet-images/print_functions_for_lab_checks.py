@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 # */AIPND/intropylab-classifying-images/print_functions_for_lab_checks.py
 #                                                                             
-# PROGRAMMER: Jennifer S.                                                    
+# PROGRAMMER: S.H. Updates to check_calculating_results(): updated results_stats_dic keys
 # DATE CREATED: 05/14/2018                                  
-# REVISED DATE:             <=(Date Revised - if any)                         
+# REVISED DATE: Mar-07, 2019            <=(Date Revised - if any)
 # PURPOSE:  This set of functions can be used to check your code after programming 
 #           each function. The top section of each part of the lab contains
 #           the section labeled 'Checking your code'. When directed within this
@@ -17,7 +17,7 @@
 # Functions below defined to help with "Checking your code", specifically
 # running these functions with the appropriate input arguments within the
 # main() funtion will print out what's needed for "Checking your code"
-#
+##
 def check_command_line_arguments(in_arg):
     """
     For Lab: Classifying Images - 7. Command Line Arguments
@@ -300,13 +300,9 @@ def check_calculating_results(results_dic, results_stats_dic):
         # prints calculated statistics
         print("\n ** Statistics from calculates_results_stats() function:")
         print("N Images: {:2d}  N Dog Images: {:2d}  N NotDog Images: {:2d} \nPct Corr dog: {:5.1f} Pct Corr NOTdog: {:5.1f}  Pct Corr Breed: {:5.1f}".format(
-              #results_stats_dic['n_images'], results_stats_dic['n_dogs_img'],
               results_stats_dic['n_count_num_images'], results_stats_dic['n_count_num_dog_imgs'],
-              #results_stats_dic['n_notdogs_img'], results_stats_dic['pct_correct_dogs'],
               results_stats_dic['n_count_num_not_dog_imgs'], results_stats_dic['pct_corr_classified_dog_imgs'],
-              #results_stats_dic['pct_correct_notdogs'],
               results_stats_dic['pct_corr_classified_non_dog_imgs'],
-              #results_stats_dic['pct_correct_breed']))
               results_stats_dic['pct_corr_classified_dog_breeds']))
         print("\n ** Check Statistics - calculated from this function as a check:")
         print("N Images: {:2d}  N Dog Images: {:2d}  N NotDog Images: {:2d} \nPct Corr dog: {:5.1f} Pct Corr NOTdog: {:5.1f}  Pct Corr Breed: {:5.1f}".format(

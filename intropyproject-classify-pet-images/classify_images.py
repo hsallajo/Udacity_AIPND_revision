@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/classify_images.py
 #                                                                             
-# PROGRAMMER: S. Huoponen
+# PROGRAMMER: S.H.
 # DATE CREATED:  Mar-5, 2019                               
 # REVISED DATE: 
 # PURPOSE: Create a function classify_images that uses the classifier function 
@@ -24,12 +24,6 @@
 from classifier import classifier
 from os import listdir 
 
-# TODO 3: Define classify_images function below, specifically replace the None
-#       below by the function definition of the classify_images function. 
-#       Notice that this function doesn't return anything because the 
-#       results_dic dictionary that is passed into the function is a mutable 
-#       data type so no return is needed.
-# 
 def classify_images(images_dir, results_dic, model):
     """
     Creates classifier labels with classifier function, compares pet labels to 

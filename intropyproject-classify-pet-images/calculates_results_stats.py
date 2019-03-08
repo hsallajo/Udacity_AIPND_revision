@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/calculates_results_stats.py
 #                                                                             
-# PROGRAMMER:
-# DATE CREATED:                                  
+# PROGRAMMER: S.H.
+# DATE CREATED: Mar-7, 2019
 # REVISED DATE: 
 # PURPOSE: Create a function calculates_results_stats that calculates the 
 #          statistics of the results of the programrun using the classifier's model 
@@ -36,12 +36,7 @@
 #            pct_correct_dogs - percentage of correctly classified dogs
 #            pct_correct_breed - percentage of correctly classified dog breeds
 #            pct_correct_notdogs - percentage of correctly classified NON-dogs
-#
 ##
-# TODO 5: Define calculates_results_stats function below, please be certain to replace None
-#       in the return statement with the results_stats_dic dictionary that you create 
-#       with this function
-# 
 def calculates_results_stats(results_dict):
     """
     Calculates statistics of the results of the program run using classifier's model 
@@ -67,23 +62,15 @@ def calculates_results_stats(results_dict):
                      and the value is the statistic's value. See comments above
                      and the classroom Item XX Calculating Results for details
                      on how to calculate the counts and statistics.
-    """        
-    # Replace None with the results_stats_dic dictionary that you created with 
-    # this function 
+    """
     stats_dict = {}
 
-    n_count_num_images = 0
     n_count_num_corr_dog_matches = 0
     n_count_num_corr_non_dog_matches = 0
     n_count_num_dog_imgs = 0
     n_count_num_not_dog_imgs = 0
     n_count_num_corr_breed_matches = 0
     n_count_num_label_matches = 0
-
-    pct_corr_classified_dog_imgs = 0
-    pct_corr_classified_non_dog_imgs = 0
-    pct_corr_classified_dog_breeds = 0
-    pct_label_matches = 0
 
     n_count_num_images = len(results_dict)
 

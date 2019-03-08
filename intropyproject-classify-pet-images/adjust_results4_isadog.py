@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/adjust_results4_isadog.py
 #                                                                             
-# PROGRAMMER: S. Huoponen
+# PROGRAMMER: S.H.
 # DATE CREATED: Mar-7, 2019
 # REVISED DATE: 
 # PURPOSE: Create a function adjust_results4_isadog that adjusts the results 
@@ -31,12 +31,6 @@
 #           label isn't a dog.
 #
 ##
-# TODO 4: Define adjust_results4_isadog function below, specifically replace the None
-#       below by the function definition of the adjust_results4_isadog function. 
-#       Notice that this function doesn't return anything because the 
-#       results_dic dictionary that is passed into the function is a mutable 
-#       data type so no return is needed.
-# 
 def adjust_results4_isadog(results_dic, dogfile):
     """
     Adjusts the results dictionary to determine if classifier correctly 
@@ -98,27 +92,24 @@ def adjust_results4_isadog(results_dic, dogfile):
                 break
 
 def find_exact_match(str1, str2):
-
     word_count = str1.count(" ") + 1
-    i = 0
-    str4 = ""
 
     if str1 in str2:
         pos = str2.find(str1)
         if pos > 0:
             if str2[pos - 1] != " ":
                 return False
-        str3 = str2[pos:]
-        words = str3.split(" ")
+        words = str2[pos:].split(" ")
+
+        result_str = ""
+        #i = 0
         for i in range(0, word_count):
-            str4 += words[i] + " "
+            result_str += words[i] + " "
             i += 1
-        str4 = str4.strip()
-        if str1 == str4:
+        result_str = result_str.strip()
+        if str1 == result_str:
             return True
         else:
             return False
     else:
         return False
-
-#print(find_exact_match("cat","mcat walked in moon catcat"))

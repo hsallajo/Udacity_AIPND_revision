@@ -1,0 +1,90 @@
+Command Line Arguments:
+     dir = uploaded_images/ 
+    arch = alexnet 
+ dogfile = dognames.txt
+
+Pet Image Label Dictionary has 5 key-value pairs.
+Below are 5 of them:
+ 1 key:                     Dog_01.jpg  label:                        dog
+ 2 key:                     Dog_02.jpg  label:                        dog
+ 3 key:                  Flower_01.jpg  label:                     flower
+ 4 key:               Leberkase_01.jpg  label:                  leberkase
+ 5 key:                   Sloth_01.jpg  label:                      sloth
+
+     MATCH:
+
+                  Sloth_01.jpg: 
+Real:                      sloth   Classifier: three-toed sloth, ai, bradypus tridactylus
+
+ NOT A MATCH:
+
+                    Dog_01.jpg: 
+Real:                        dog   Classifier: cocker spaniel, english cocker spaniel, cocker
+
+                    Dog_02.jpg: 
+Real:                        dog   Classifier:         welsh springer spaniel
+
+                 Flower_01.jpg: 
+Real:                     flower   Classifier: prairie chicken, prairie grouse, prairie fowl
+
+              Leberkase_01.jpg: 
+Real:                  leberkase   Classifier:                         bolete
+
+# Total Images 5 # Matches: 1 # NOT Matches: 4
+
+     MATCH:
+
+                  Sloth_01.jpg: 
+Real:                      sloth   Classifier: three-toed sloth, ai, bradypus tridactylus  
+PetLabelDog: 0  ClassLabelDog: 0
+
+ NOT A MATCH:
+
+                    Dog_01.jpg: 
+Real:                        dog   Classifier: cocker spaniel, english cocker spaniel, cocker  
+PetLabelDog: 1  ClassLabelDog: 1
+
+                    Dog_02.jpg: 
+Real:                        dog   Classifier:         welsh springer spaniel  
+PetLabelDog: 1  ClassLabelDog: 1
+
+                 Flower_01.jpg: 
+Real:                     flower   Classifier: prairie chicken, prairie grouse, prairie fowl  
+PetLabelDog: 0  ClassLabelDog: 0
+
+              Leberkase_01.jpg: 
+Real:                  leberkase   Classifier:                         bolete  
+PetLabelDog: 0  ClassLabelDog: 0
+
+# Total Images 5 # Matches: 1 # NOT Matches: 4
+
+ ** Statistics from calculates_results_stats() function:
+N Images:  5  N Dog Images:  2  N NotDog Images:  3 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:   0.0
+
+ ** Check Statistics - calculated from this function as a check:
+N Images:  5  N Dog Images:  2  N NotDog Images:  3 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:   0.0
+
+
+# ************************************************
+# Model arch: alexnet
+# Number of images: 5
+# Number of Dog images: 2
+# Number of 'Not-a' Dog images: 3
+# pct_corr_classified_dog_imgs: 100
+# pct_corr_classified_non_dog_imgs: 100
+# pct_corr_classified_dog_breeds: 0
+# pct_label_matches: 20
+#
+
+# Print misclassifications: True
+# Number of misclassified dogs: 0
+#
+
+# Print misclassifications of breeds: True
+# Misclassified breed: Dog_01.jpg: 'dog' vs 'cocker spaniel, english cocker spaniel, cocker'
+# Misclassified breed: Dog_02.jpg: 'dog' vs 'welsh springer spaniel'
+# Misclassified breeds of dogs: 2 
+
+** Total Elapsed Runtime: 0:0:0
