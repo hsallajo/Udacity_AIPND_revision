@@ -42,7 +42,7 @@
 #       in the return statement with the results_stats_dic dictionary that you create 
 #       with this function
 # 
-def calculates_results_stats(results_dic):
+def calculates_results_stats(results_dict):
     """
     Calculates statistics of the results of the program run using classifier's model 
     architecture to classifying pet images. Then puts the results statistics in a 
@@ -70,4 +70,47 @@ def calculates_results_stats(results_dic):
     """        
     # Replace None with the results_stats_dic dictionary that you created with 
     # this function 
-    return None
+    stats_dict = {}
+
+    n_count_num_images = 0
+    n_count_num_corr_dog_matches = 0
+    n_count_num_corr_non_dog_matches = 0
+    n_count_num_dog_imgs = 0
+    n_count_num_not_dog_imgs = 0
+    n_count_num_corr_breed_matches = 0
+    n_count_num_label_matches = 0
+
+    pct_corr_classified_dog_imgs = 0
+    pct_corr_classified_non_dog_imgs = 0
+    pct_corr_classified_dog_breeds = 0
+    pct_label_matches = 0
+
+    n_count_num_images = len(results_dict)
+
+    for key, data in results_dict.items():
+        if data[3] == 1 and data[4] == 1:
+            n_count_num_corr_dog_matches += 1
+        if data[3] == 1:
+            n_count_num_dog_imgs += 1
+        if data[3] == 0 and data[4] == 0:
+            n_count_num_corr_non_dog_matches += 1
+        if data[3] == 0:
+            n_count_num_not_dog_imgs += 1
+        if data[3] == 1 and data[2] == 1:
+            n_count_num_corr_breed_matches += 1
+        if data[2] == 1:
+            n_count_num_label_matches += 1
+
+    stats_dict["n_count_num_images"] = n_count_num_images
+    stats_dict["n_count_num_corr_dog_matches"] = n_count_num_corr_dog_matches
+    stats_dict["n_count_num_corr_non_dog_matches"] = n_count_num_corr_non_dog_matches
+    stats_dict["n_count_num_dog_imgs"] = n_count_num_dog_imgs
+    stats_dict["n_count_num_not_dog_imgs"] = n_count_num_not_dog_imgs
+    stats_dict["n_count_num_corr_breed_matches"] = n_count_num_corr_breed_matches
+    stats_dict["n_count_num_label_matches"] = n_count_num_label_matches
+    stats_dict["pct_corr_classified_dog_imgs"] = int(n_count_num_corr_dog_matches * 100 / n_count_num_dog_imgs)
+    stats_dict["pct_corr_classified_non_dog_imgs"] = int(n_count_num_corr_non_dog_matches * 100 / n_count_num_not_dog_imgs)
+    stats_dict["pct_corr_classified_dog_breeds"] = int(n_count_num_corr_breed_matches * 100 / n_count_num_dog_imgs)
+    stats_dict["pct_label_matches"] = int(n_count_num_label_matches * 100 / n_count_num_images)
+
+    return stats_dict

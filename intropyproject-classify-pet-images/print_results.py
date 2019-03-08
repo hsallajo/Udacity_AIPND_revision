@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/print_results.py
 #                                                                             
-# PROGRAMMER: 
+# PROGRAMMER: S. Huoponen, Mar-7, 2019
 # DATE CREATED:
 # REVISED DATE: 
 # PURPOSE: Create a function print_results that prints the results statistics
@@ -31,7 +31,7 @@
 #       Notice that this function doesn't to return anything because it  
 #       prints a summary of the results using results_dic and results_stats_dic
 # 
-def print_results(results_dic, results_stats_dic, model, 
+def print_results(results_dict, results_stats_dict, model,
                   print_incorrect_dogs = False, print_incorrect_breed = False):
     """
     Prints summary results on the classification and then prints incorrectly 
@@ -61,6 +61,38 @@ def print_results(results_dic, results_stats_dic, model,
                               False doesn't print anything(default) (bool) 
     Returns:
            None - simply printing results.
-    """    
-    None
-                
+    """
+    print("\n")
+    print("# ************************************************")
+    print("# Results with model: {}".format(model))
+    print("# Number of images: {}".format(results_stats_dict["n_count_num_images"]))
+    print("# Number of Dog images: {}".format(results_stats_dict["n_count_num_dog_imgs"]))
+    print("# Number of 'Not-a' Dog images: {}".format(results_stats_dict["n_count_num_not_dog_imgs"]))
+
+    for item, val in results_stats_dict.items():
+        if item[0] == 'p':
+            print("# {}: {}".format(item, val))
+
+    print("#\n")
+    print("# Print misclassifications: {}".format(print_incorrect_dogs))
+
+    if print_incorrect_dogs:
+        # Misclassified dogs: labels disagree on whether or not an image is of a dog
+        print("# Number of misclassified dogs: {}".format( \
+            results_stats_dict['n_count_num_images'] - \
+            results_stats_dict['n_count_num_corr_dog_matches'] - \
+            results_stats_dict['n_count_num_corr_non_dog_matches']))
+        print("#\n")
+        for misc_key, misc_val in results_dict.items():
+            if sum(misc_val[3:]) == 1:
+                print("{}: {}".format(misc_key, misc_val))
+
+    print("# Print misclassifications of breeds: {}".format(print_incorrect_breed))
+    if print_incorrect_breed:
+        count = 0
+        # Misclassified breeds of dogs: both labels indicate that the image is a dog; but, labels aren't in agreement regarding the dog's breed
+        for inc_breed_key, inc_breed_val in results_dict.items():
+            if sum(results_dict[inc_breed_key][3:]) == 2 and results_dict[inc_breed_key][2] == 0:
+                count += 1
+                print("# Misclassified breed: {}: '{}' vs '{}'".format(inc_breed_key, inc_breed_val[0], inc_breed_val[1]))
+        print("# Misclassified breeds of dogs: {} ".format(count))
